@@ -1,0 +1,80 @@
+name: "Private Beta Signup"
+description: "Apply for early access to Voxlert"
+title: "[Beta] "
+labels: ["beta-signup"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Voxlert Private Beta
+        Thanks for your interest! Fill this out and we'll reach out with access details.
+
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: "Your name"
+    validations:
+      required: true
+
+  - type: input
+    id: email
+    attributes:
+      label: Email
+      description: "How we'll contact you with beta access"
+      placeholder: "you@example.com"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Linux
+        - Windows (WSL)
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: ide
+    attributes:
+      label: "AI tools you use"
+      description: "Check all that apply"
+      options:
+        - label: Claude Code
+        - label: Cursor
+        - label: GitHub Copilot
+        - label: Cline / Continue
+        - label: Other
+
+  - type: dropdown
+    id: blocking
+    attributes:
+      label: "What brought you here?"
+      options:
+        - "I want local TTS (Piper/Coqui) — can run it myself"
+        - "I can't run local TTS — need a hosted option"
+        - "Just curious, want to try it"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: usecase
+    attributes:
+      label: "How would you use voice notifications?"
+      description: "A sentence or two is fine"
+      placeholder: "e.g. I run long Claude Code sessions and want to hear when tasks finish without watching the screen"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: "I'm OK with the maintainer contacting me at the email above about beta access"
+          required: true

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voxlert — Private Beta</title>
+  <meta name="description" content="Get early access to Voxlert — voice notifications for AI coding agents." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #141414;
+      --border: #252525;
+      --green: #00ff88;
+      --green-dim: #00cc6a;
+      --text: #e0e0e0;
+      --muted: #666;
+      --accent: #1a3a2a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--accent);
+      border: 1px solid var(--green-dim);
+      border-radius: 2px;
+      padding: 0.25em 0.75em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .features li {
+      font-size: 0.85rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .features li::before {
+      content: '▸';
+      color: var(--green);
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.75rem 0;
+    }
+
+    .paths {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .path {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1rem 1.25rem;
+    }
+
+    .path-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .path-title {
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .path-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .cta {
+      display: block;
+      width: 100%;
+      padding: 0.9rem 1.5rem;
+      background: var(--green);
+      color: #000;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      text-align: center;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .cta:hover { background: var(--green-dim); }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .footer-note a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    .footer-note a:hover { text-decoration: underline; }
+
+    /* terminal blink cursor */
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cursor {
+      display: inline-block;
+      width: 0.55em;
+      height: 1em;
+      background: var(--green);
+      vertical-align: text-bottom;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">Private Beta</div>
+
+    <h1>Voxlert<span class="cursor"></span></h1>
+    <p class="subtitle">
+      Voice notifications for your AI coding agent.<br>
+      Hear when Claude Code or Cursor finishes a task — without watching the screen.
+    </p>
+
+    <ul class="features">
+      <li>Drop-in hooks for Claude Code and Cursor</li>
+      <li>Starcraft Adjutant, SHODAN, GLADOS, and more</li>
+      <li>Local TTS via Piper — no cloud required</li>
+      <li>Hosted option if you can't run local TTS</li>
+    </ul>
+
+    <hr class="divider" />
+
+    <p class="path-label" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">
+      What we're looking for in beta testers
+    </p>
+    <div class="paths">
+      <div class="path">
+        <div class="path-label">Path A — Local</div>
+        <div class="path-title">You can run Piper TTS locally</div>
+        <div class="path-desc">macOS or Linux, comfortable in the terminal. Ready to go today.</div>
+      </div>
+      <div class="path">
+        <div class="path-label">Path B — Hosted</div>
+        <div class="path-title">You need a hosted TTS option</div>
+        <div class="path-desc">We're building a managed backend. Join waitlist for early access.</div>
+      </div>
+    </div>
+
+    <a
+      class="cta"
+      href="https://github.com/settinghead/voiceforge-main/issues/new?template=beta-signup.yml&title=%5BBeta%5D+Signup"
+      target="_blank"
+      rel="noopener"
+    >
+      Apply for Beta Access →
+    </a>
+
+    <p class="footer-note">
+      Opens a short form on GitHub. Takes ~60 seconds.<br>
+      Questions? <a href="https://github.com/settinghead/voiceforge-main/discussions/6">Ask in Discussions</a>
+      or email <a href="mailto:settinghead@gmail.com">settinghead@gmail.com</a>.
+    </p>
+  </div>
+</body>
+</html>
